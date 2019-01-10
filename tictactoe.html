@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Kółko i krzyżyk</title>
+    <style media="screen">
+      .okno{
+        text-align: center;
+        border: 1px solid black;
+        height: 50px; width: 50px; float: left; margin-right: 5px;
+        margin-left: 5px; margin-top: 5px;font-size:xx-large;
+      }
+      .trojka{
+        margin-bottom: 5px; overflow: auto;
+      }
+      #plansza{
+        border: 1px solid black;
+        position:absolute; top: 10%; left: 10%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Proste kółko i krzyżyk!</h1>
+    <div id="plansza">
+    <div class="trojka">
+    <div id="1" class="okno" onClick="wcisniety(1)"></div>
+    <div id="2" class="okno" onClick="wcisniety(2)"></div>
+    <div id="3" class="okno" onClick="wcisniety(3)"></div></div>
+    <div class="trojka">
+    <div id="4" class="okno" onClick="wcisniety(4)"></div>
+    <div id="5" class="okno" onClick="wcisniety(5)"></div>
+    <div id="6" class="okno" onClick="wcisniety(6)"></div></div>
+    <div class="trojka">
+    <div id="7" class="okno" onClick="wcisniety(7)"></div>
+    <div id="8" class="okno" onClick="wcisniety(8)"></div>
+    <div id="9" class="okno" onClick="wcisniety(9)"></div></div>
+    </div>
+    <p id="10">Baw się dobrze!</p>
+  <script type="text/javascript">
+    var flaga=true;
+    var zamroz=true;
+    wygrywajace=[[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]];
+    function wcisniety(id){
+      if(zamroz==true){
+      if(document.getElementById(id).textContent!=="X"||document.getElementById(id).textContent!=="O"){
+        if(flaga==true){
+          document.getElementById(id).textContent="X";
+          flaga= false;
+          sprawdz();
+        }else{
+          document.getElementById(id).textContent="O";
+          flaga= true;
+          sprawdz();
+        }
+      }
+    }}
+    function sprawdz(){
+      for(var a=0; a<wygrywajace.length; a++){
+        if(document.getElementById(wygrywajace[a][0]).textContent===document.getElementById(wygrywajace[a][1]).textContent&&
+        document.getElementById(wygrywajace[a][1]).textContent===document.getElementById(wygrywajace[a][2]).textContent){
+          if(document.getElementById(wygrywajace[a][0]).textContent=="X"||document.getElementById(wygrywajace[a][0]).textContent=="O"){
+          document.getElementById(10).textContent="Wygrana "+document.getElementById(wygrywajace[a][0]).textContent+" !";
+          zamroz=false;}
+      }
+    }
+  }
+  </script>
+  </body>
+</html>
