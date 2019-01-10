@@ -36,6 +36,8 @@
     <div id="9" class="okno" onClick="wcisniety(9)"></div></div>
     </div>
     <p id="10">Teraz tura X!</p>
+    <br><br>
+    <a id="11" onclick=window.location.reload()>Baw się dobrze!</a>
   <script type="text/javascript">
     var flaga=true;
     var zamroz=true;
@@ -62,6 +64,8 @@
         document.getElementById(wygrywajace[a][1]).textContent===document.getElementById(wygrywajace[a][2]).textContent){
           if(document.getElementById(wygrywajace[a][0]).textContent=="X"||document.getElementById(wygrywajace[a][0]).textContent=="O"){
           document.getElementById(10).textContent="Wygrywa "+document.getElementById(wygrywajace[a][0]).textContent+"!";
+          document.getElementById(11).textContent="Restart!";
+          document.getElementById(11).style.textDecoration = "underline";
           zamroz=false;}
       }
     }
