@@ -35,20 +35,22 @@
     <div id="8" class="okno" onClick="wcisniety(8)"></div>
     <div id="9" class="okno" onClick="wcisniety(9)"></div></div>
     </div>
-    <p id="10">Baw się dobrze!</p>
+    <p id="10">Teraz tura X!</p>
   <script type="text/javascript">
     var flaga=true;
     var zamroz=true;
     wygrywajace=[[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]];
     function wcisniety(id){
       if(zamroz==true){
-      if(document.getElementById(id).textContent!=="X"||document.getElementById(id).textContent!=="O"){
+      if(document.getElementById(id).textContent!="X"&&document.getElementById(id).textContent!="O"){
         if(flaga==true){
           document.getElementById(id).textContent="X";
+          document.getElementById(10).textContent="Teraz tura O!";
           flaga= false;
           sprawdz();
         }else{
           document.getElementById(id).textContent="O";
+          document.getElementById(10).textContent="Teraz tura X!";
           flaga= true;
           sprawdz();
         }
@@ -59,7 +61,7 @@
         if(document.getElementById(wygrywajace[a][0]).textContent===document.getElementById(wygrywajace[a][1]).textContent&&
         document.getElementById(wygrywajace[a][1]).textContent===document.getElementById(wygrywajace[a][2]).textContent){
           if(document.getElementById(wygrywajace[a][0]).textContent=="X"||document.getElementById(wygrywajace[a][0]).textContent=="O"){
-          document.getElementById(10).textContent="Wygrana "+document.getElementById(wygrywajace[a][0]).textContent+" !";
+          document.getElementById(10).textContent="Wygrywa "+document.getElementById(wygrywajace[a][0]).textContent+"!";
           zamroz=false;}
       }
     }
